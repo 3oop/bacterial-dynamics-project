@@ -1,0 +1,14 @@
+
+	We are going to find an equation that shows the rate of population change of bacterias.
+	
+	We take the growth rate of their population considering limits like their lifespan and limited resources. in this case logistic equation could give us an an acceptable model.
+	
+	then we are going to consider the factors that decrease their population. the factors that we are going to take in consideration are immune system cells, antibiotics and the natural clearance of body. for the first two we generalize Lotka-Volterra predator-prey model and for the last one we can simplify our model and take the clearance rate of the body as a constant coefficient of population.
+	
+	with all the considerations above given we get these equations:
+	
+	$$\dot B=rB(1-\frac{B}{K})-\lambda.I-\zeta.A-\gamma.B$$
+	$$\dot I=\theta.B-\mu.I$$
+	$$\dot A=\eta-\beta.B.A - \psi.A$$
+
+    where $B$ represents bacterial population, $A$ represents the antibiotic concentration and $I$ represents immune cells.

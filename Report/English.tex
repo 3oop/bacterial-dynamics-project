@@ -1,0 +1,83 @@
+\documentclass[12pt]{article}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{multicol,multirow}
+\usepackage{caption}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{setspace}
+\usepackage{xepersian}
+\settextfont{XB Zar}[
+Path=./fonts/,
+Scale=1.2,
+Extension=.TTF,
+UprightFont=*,
+ItalicFont=*It,
+BoldFont=*Bd,
+BoldItalicFont=*BdIt
+]
+\setdigitfont{XB Zar}
+
+\theoremstyle{definition}
+\newtheorem{theo}{\textbf{قضیه}}
+\newtheorem{prp}{\large{گزاره}}
+\newtheorem{defff}{\large{تعریف}}
+\newtheorem{lem}{\large{لم}}
+\renewcommand{\baselinestretch}{1.25}
+
+\title{دینامیک باکتری و آنتیبیوتیک}
+
+%\author{محمدحسین نادری - پوریا عصاره‌ها - مانی مرادی}
+
+\date{}
+%\onehalfspacing
+\setstretch{1.45}
+
+
+\begin{document}
+
+	\input{
+		% titlepage_en.tex
+		titlepage_fa.tex
+	}
+
+	\newpage
+	\setcounter{page}{2}
+
+	\begin{center}
+		\textbf{چکیده}
+	\end{center}
+
+	\begin{flushleft}
+		\Large 
+		
+
+	\end{flushleft}
+	
+	\newpage	
+	
+	% \section{Introduction} \input{Introduction.tex}
+
+	\section{مقدمه} \input{Introduction_fa.tex}
+
+	\section{Litrature Review}
+
+	% \section{Our Model} \input{Chapter3.tex}
+
+	\section{مدل ریاضی} \input{Chapter3_fa.tex}
+
+	\section{Computation \& Analysis}
+
+	\section{Results}
+
+	
+	% \bibliography{ref.bib}
+	% \begin{thebibliography}{99}
+	
+	% \end{thebibliography}
+	
+\bibliographystyle{plainnat}
+\bibliography{References/ref.bib} % Your .bib file name
+	
+\end{document}
