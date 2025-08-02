@@ -157,14 +157,15 @@
     \column{0.65\textwidth}
       \begin{itemize}
           \item Equiliberia $\equiv$ Zero Change $\equiv$  \( \dot{\mathbf{X}} = \vec{0} \)
-          \item let \(f(n) = 1 - \frac{\psi(n)}{\phi(n)}\) with \(f(0)>0\)
+          \item let \(f(n) = 1 - \frac{\psi(n)}{\phi(n)}\) with \(f(0)>0\) and simplify
+          \item we want \( f \uparrow \) for small \(n\) and \(f \downarrow \) for large \(n\) (How Immunity works)
           \item \(f\) either remains \(+\) or after a threshold drops \(< 0\)
-          \item we focus on 2nd scenario
+          \item we focus on 2nd scenario (remmeber \( n \) is bounded )
       \end{itemize}
     \column{0.34\textwidth}
       \begin{figure}
         \includegraphics[width=\textwidth]{1-s2.0-S1007570424005975-gr2.jpg}
-        \caption{Schematic Rep. of \(f\) \cite{MOSTEFAOUI2025108412}}
+        \caption{Schematic Rep. of what \(f\) can be \cite{MOSTEFAOUI2025108412}}
       \end{figure}
   \end{columns}
   \vspace{-5mm}
@@ -172,7 +173,7 @@
     \mu(1 - a)  = 0 \\
     \eta_s(1 - n)s - \alpha as - \beta \frac{sr}{n} - \gamma sp = 0 \\
     \eta_r(1 - n)r + \beta \frac{sr}{n} - \gamma rp = 0 \\
-    \phi(n)p(1 - p) - \psi(n)p = 0 
+    \phi(n)p(f(n) -p ) = 0 
   \end{array} \quad \Rightarrow \quad \begin{array}{l}
     a = 1 \\
     s = 0 \quad \text{or} \quad \eta_s(1-n) - \alpha - \beta\frac{r}{n} -\gamma p =0 \\
@@ -248,8 +249,9 @@ C_{+} = \eta_{s}\left(1 - \lambda_{+}\right) - \alpha - \beta\), \( C_{-} = \eta
 and 
 \vspace{-0.2cm} % Adjust spacing
 \[
-C_* = -\frac{({\eta_{*}}^{s,+}{\eta_{r}}^{r,})^{\beta s,} r_*({\eta_{*}}^{-}{\eta_{r}})}{f(n_*) {\phi}(n_*) (n_*)^2 ({\eta_{*}}^{s,+}{\eta_{r}}^{r,}+f(n_*) {\phi}(n_*))} - \frac{{\eta_{*}}^{s,+}{\eta_{r}}^{r,}}{n_*}.
+C_* = -\frac{\left(\eta_s s_* + \eta_r r_*\right) \beta s_* r_* \left(\eta_s - \eta_r\right)}{f(n_*)\phi(n_*) (n_*)^2 \left(\eta_s s_* + \eta_r r_* + f(n_*)\phi(n_*)\right)} - \frac{\eta_s s_* - \eta_r r_*}{\eta_*} .
 \]
+will show up for finding stability criteria 
     \end{itemize}
 
 \end{frame}
