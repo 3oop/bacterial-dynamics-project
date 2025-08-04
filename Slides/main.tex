@@ -240,7 +240,8 @@
 \begin{frame}[shrink = 25]{Linearinzation}
     \begin{itemize}
       \item System is non linear,
-      \item Linearinzation around fixed points \(\Rightarrow\) Jacubian Matrix
+      \item Linearinzation around fixed points \(\Rightarrow\) Jacobian Matrix
+      \item Signs of the eigenvalues of the Jacobian matrix shall be determined
 \[
 \begin{pmatrix}
 -\mu & 0 & 0 & 0 \\
@@ -292,10 +293,42 @@ will show up for finding stability criteria
 \end{frame}
 
 \section{Numerical Computation}
+\begin{frame}[shrink= 25]{Numerical Computation}
+\begin{itemize}
+	\item we have chosen the function $f(n)=-n^2+n+\frac{3}{4}$ the aligns with our hypothesis
+	 \vspace{1mm}  
+	\begin{figure}
+			\includegraphics[width=0.3\textwidth]{Screenshot 2025-08-04 174654.png}
+		\caption{$f(n)=-n^2+n+\frac{3}{4}$}
+	\end{figure}
+	\item Since $E_1$ is the equilibria which the system will reach an infection free state we will display it
+\end{itemize}
 
+\end{frame}
 
-\section{Results}
+\begin{frame}[shrink=20]{Numerical Computation}
+\begin{figure}
+		\includegraphics[width=0.4\textwidth]{Screenshot 2025-08-04 180807.png}
+        \caption{Stability of $E_1$ \cite{MOSTEFAOUI2025108412}}
+\end{figure}	
 
+Specifically, for $E_1$ to be stable, two crucial conditions must be met:
+\begin{itemize}
+	\item the antibiotic must be administered at a sufficiently	high rate compared to the reproduction rate of non-resistant bacteria
+	\item the immune response must be strong enough to outcompete and eliminate resistant bacteria
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Numerical Computation}
+	
+\end{frame}
+
+\section{Code}
+
+\begin{frame}[allowframebreaks]{Code}
+	
+\end{frame}
 
 \section{References}
 \begin{frame}[allowframebreaks]{References}
