@@ -1,4 +1,5 @@
 \documentclass{beamer}
+
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 % \usepackage[hidelinks]{hyperref}
@@ -11,14 +12,27 @@
 \usepackage[sortcites,style=numeric,sorting=none,backend=biber]{biblatex}
 \addbibresource{ref.bib}
 
-\usepackage{tikz}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
 \setbeamertemplate{caption}[numbered]
 \renewcommand{\figurename}{Fig.}
 
 \usetheme{Madrid}
 
+\usepackage{minted}  % Core package
+\usepackage{xcolor}  % For custom colors
+\usepackage{fontspec} % For custom fonts (XeLaTeX/LuaLaTeX only)
+
+% Essential minted configuration for Beamer
+\setminted{
+    autogobble,
+    breaklines,
+    fontsize=\footnotesize,
+    framesep=2mm,
+    obeytabs=true
+}
+
+% Fix for Beamer compatibility
+\usepackage{catchfile}  % Required for minted in Beamer
+\usemintedstyle{friendly}  % Choose a style that works well in presentations
 
 \title[Bacterial Dynamics]{Population Dynamics of Bactria inside Humans}
 \subtitle{Battle of Bacteria, Antibiotics and Immune system}
@@ -325,13 +339,16 @@ will show up for finding stability criteria
 \end{frame}
 
 \section{Code}
-
-\begin{frame}[allowframebreaks]{Code}
-	
+\begin{frame}[fragile, allowframebreaks]{Code}
+\begin{minted}{pyhton}
+  import sympy as sp
+\end{minted}
 \end{frame}
+
 
 \section{References}
 \begin{frame}[allowframebreaks]{References}
+    \nocite{*}
     \printbibliography
 \end{frame}
 
