@@ -1,8 +1,74 @@
 \documentclass{beamer}
-
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 % \usepackage[hidelinks]{hyperref}
+
+
+
+
+
+
+
+
+
+
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \usepackage{setspace}
 \doublespacing
@@ -12,27 +78,14 @@
 \usepackage[sortcites,style=nature,sorting=none,backend=biber]{biblatex}
 \addbibresource{ref.bib}
 
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \setbeamertemplate{caption}[numbered]
 \renewcommand{\figurename}{Fig.}
 
 \usetheme{Madrid}
 
-\usepackage{minted}  % Core package
-\usepackage{xcolor}  % For custom colors
-\usepackage{fontspec} % For custom fonts (XeLaTeX/LuaLaTeX only)
-
-% Essential minted configuration for Beamer
-\setminted{
-    autogobble,
-    breaklines,
-    fontsize=\footnotesize,
-    framesep=2mm,
-    obeytabs=true
-}
-
-% Fix for Beamer compatibility
-\usepackage{catchfile}  % Required for minted in Beamer
-\usemintedstyle{friendly}  % Choose a style that works well in presentations
 
 \title[Bacterial Dynamics]{Population Dynamics of Bactria inside Humans}
 \subtitle{Battle of Bacteria, Antibiotics and Immune system}
@@ -339,16 +392,80 @@ will show up for finding stability criteria
 \end{frame}
 
 \section{Code}
-\begin{frame}[fragile, allowframebreaks]{Code}
-\begin{minted}{pyhton}
-  import sympy as sp
-\end{minted}
+
+\begin{frame}[fragile,allowframebreaks]{Deriving Jacobian}
+	
+	\begin{lstlisting}[language=Python]
+		import sympy as sp
+		
+		a, s, r, p = sp.symbols('a s r p')
+		mu, eta_r, eta_s, alpha, beta, gamma = sp.symbols(
+			'mu eta_r eta_s alpha beta gamma'
+		)
+		
+		vars_params = [a, s, r, p , alpha, beta, gamma, eta_s, eta_r, mu]
+		
+		def f(x):
+			return x - x**2 + 3/4
+		
+		n = s + r
+		
+		f1 = mu * (1 - a)
+		f2 = eta_s*(1 - n)*s - alpha * a * s - (beta * s * r )/n - gamma * s * p
+		f3 = eta_r*(1 - n)*r + (beta * s * r )/n - gamma * r * p
+		f4 = p * ( f(n) - p )
+		
+		dyn = sp.Matrix([f1,f2,f3,f4])
+		
+		J = dyn.jacobian([a,s,r,p])
+		
+		## for E1
+		li = [1 , 0, 0 , f(0) , 1,0.1, 1,1,0.3,3]
+		
+		dic = dict(zip(vars_params, li))
+		
+		res = J.subs(dic).evalf()
+		res
+	\end{lstlisting}
+	
+	$\displaystyle \left[\begin{matrix}-3.0 & 0 & 0 & 0\\0 & -0.75 & -0.1 & 0\\0 & 0 & -0.35 & 0\\0 & 0.75 & 0.75 & -0.75\end{matrix}\right]$
+	
 \end{frame}
+
+
+\begin{frame}[fragile,allowframebreaks]{ODE Numeric Solve}
+	
+	
+	\begin{lstlisting}[language=Python]
+		from scipy.integrate import odeint
+		
+		def evaluate_dyn(y , t, alpha, beta, gamma, eta_s, eta_r, mu) -> tuple:
+			a, s, r, p = y
+			state_vars = [a, s, r, p , alpha, beta, gamma, eta_s, eta_r, mu]
+			dic = dict(zip(vars_params, state_vars))
+			res = dyn.subs(dic).evalf()
+			res = sp.matrix2numpy(res, dtype=np.float64)
+			return res.flatten()
+		
+		parset =  (1, 0.1, 1, 1, 0.3, 3)
+		
+		y0 = np.repeat(0.5, 4)
+		
+		t = np.linspace(0, 10, 1000)
+		
+		sol = odeint(evaluate_dyn, y0, t, args=parset)
+	\end{lstlisting}
+	
+	
+	
+\end{frame}
+
 
 
 \section{References}
 \begin{frame}[allowframebreaks]{References}
-    \nocite{*}
+	
+	\nocite{*}
     \printbibliography
 
 \end{frame}
