@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 % \usepackage[hidelinks]{hyperref}
 
+
 \usepackage{listings}
 \usepackage{xcolor}
 
@@ -32,6 +33,7 @@
 
 \lstset{style=mystyle}
 
+
 \usepackage{setspace}
 \doublespacing
 
@@ -47,6 +49,7 @@
 \renewcommand{\figurename}{Fig.}
 
 \usetheme{Madrid}
+
 
 \title[Bacterial Dynamics]{Population Dynamics of Bactria inside Humans}
 \subtitle{Battle of Bacteria, Antibiotics and Immune system}
@@ -73,17 +76,74 @@
     \vspace{-5mm}
     \centering \small Summer 2025
 \end{frame}
+\begin{frame}{Outline}
+	\tableofcontents
+\end{frame}
 
 
 \section{Introduction}
-\begin{frame}
+\begin{frame}{Introduction}
   \begin{itemize}
-    \item Bacteria lives inside us
-    \item Some of them unwanted
-    \item Antibiotics to get rid of them
-    \item interactions lead to different equiliberia
+    \item Antibiotic Resistance
+    \item Importance of Immune System
+    \item Selective Pressure and Challenges
+    \item Why Mathematical Modeling is Important
   \end{itemize}
 \end{frame}
+
+\begin{frame}{Antibiotic Resistance}
+
+	\begin{itemize}
+		\item Bacteria becoming resistant
+		
+	\textbf{Why this happens?}
+		\item Antibiotic Abuse
+		\item Early Stop of Medication
+		\item Prescription Error (Dosage and Medication)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Importance of Immune System}
+	\begin{itemize}
+		\item Immune System can put up a sturdy defense
+		\item Severe Infection weakens Immune System
+		\item Mild ARB Infection Becomes Fatal When Immune System is Weak
+		\item \textbf{WHO} Warns \textcolor{red}{25 million} Death by 2050
+	\end{itemize}
+\end{frame}	
+
+
+\begin{frame}{Selective Pressure and Challenges}
+	\begin{itemize}
+		\item Difficulties of Curing ARB Infection
+		\item Incorrect Prescription leads to selective pressure
+		\item Small Change of Dosage can make a Considerable Difference
+		\item Epidemiological Models shows less abuse affects growth of resistance in population level
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Why Mathematical Modeling is Important}
+	\begin{itemize}
+		\item we ask: 
+		\begin{itemize}
+			\item In what circumstances Antibiotic solely kills infection? 
+			\item When combined interventions i.e. Immunity enhancement or multi medication--is needed?
+		\end{itemize}
+		\item Mathematical models show
+		\begin{itemize}
+			\item simulation of various therapeutic scenarios
+			\item Overdosage and Underdosage effects
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+
+
+
+
+
 
 \section{Dynamic Model}
 
@@ -93,8 +153,7 @@
     \item[$S$]: Biomass of Non-Antibiotic-Resistant Bacteria 
     \item[$R$]: Biomass of Antibiotic-Resistant Bacteria
     \item[$P$]: Immune Cell Population
-    \item[$N$]: $S + R$ total bacteria   
-    \item[$\Psi$ and $\Phi$]: functions in \(\mathcal{C}^1(\mathbb{R}_+)\)
+    \item[$N$]: $S + R$ total bacteria  
   \end{description}
 \end{frame}
 
@@ -111,11 +170,13 @@
 \begin{frame}{Parameter and Term Definitions}
   \begin{description}
     \item[$\Lambda$]: administration rate of Antibiotics
-    \item[$\mu$]: absorbtion rate of Antibiotic 
+    \item[$\mu$]: absorption rate of Antibiotic 
     \item[$\eta_S$ and $\eta_R$]: reproduction rate of $S$ and $R$
     \item[$K$]: carrying capacity (Limiting the reproduction) 
-    \item[$\Gamma$]: transfer rate of resistant gene
-    \item[$P_{\text{max}}$]: limit of prolifiration of immune cells
+    \item[$\beta$]: transfer rate of resistant gene
+    \item[$\Gamma$]: Immune System's activity
+    \item[$P_{\text{max}}$]: limit of proliferation of immune cells
+    \item[$\Psi$ and $\Phi$]: functions in \(\mathcal{C}^1(\mathbb{R}_+)\) to adjust $P$ with biological 
   \end{description}
 \end{frame}
 
@@ -141,7 +202,7 @@
 \vspace{-20mm}
 \[ 
   \begin{array}{ccccc}
-    a = \frac{A}{A/\mu} & s = \frac{S}{K} & r = \frac{R}{K} & p = \frac{P}{P_{\max}} & \\
+    a = \frac{A}{\Lambda/\mu}=\frac{\mu A}{\Lambda} & s = \frac{S}{K} & r = \frac{R}{K} & p = \frac{P}{P_{\max}} & \\
     \alpha = \frac{\bar{\alpha}A}{\mu} & \gamma = \Gamma P_{\max} & n = s + r & \phi(n) = \Phi(Kn) & \psi(n) = \Psi(Kn)
   \end{array}
 \]
@@ -169,9 +230,9 @@
 
 \end{frame}
 
-\section{Equiliberia}
+\section{Equilibria}
 \begin{frame}
-  Analysing reveals 4 Equilibria - biologically meaningfull
+  Analyzing reveals 4 Equilibria - stable
   \begin{itemize}
     \item clearance of infection
     \item infection under $S$
@@ -184,7 +245,7 @@
   \begin{columns}
     \column{0.65\textwidth}
       \begin{itemize}
-          \item Equiliberia $\equiv$ Zero Change $\equiv$  \( \dot{\mathbf{X}} = \vec{0} \)
+          \item Equilibria $\equiv$ Zero Change $\equiv$  \( \dot{\mathbf{X}} = \vec{0} \)
           \item let \(f(n) = 1 - \frac{\psi(n)}{\phi(n)}\) with \(f(0)>0\) and simplify
           \item we want \( f \uparrow \) for small \(n\) and \(f \downarrow \) for large \(n\) (How Immunity works)
           \item \(f\) either remains \(+\) or after a threshold drops \(< 0\)
@@ -417,7 +478,10 @@ will show up for finding stability criteria
 		sol = odeint(evaluate_dyn, y0, t, args=parset)
 	\end{lstlisting}
 	
+	
+	
 \end{frame}
+
 
 
 \section{References}
