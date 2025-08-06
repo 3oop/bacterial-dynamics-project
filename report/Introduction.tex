@@ -1,0 +1,47 @@
+
+	Antibiotic resistance constitutes a critical global health threat, with World Health Organization projections indicating potential annual mortality in the millions by 2050 if current trends persist. This project develops a mathematical framework for modeling bacterial population dynamics within the human body, specifically examining the tripartite interaction between pathogenic bacteria, host immune response, and antibiotic interventions. 
+	
+	\subsection{Problem Context}
+	Traditional models of bacterial dynamics exhibit a significant limitation: they typically isolate either antibiotic effects \textit{or} immune response mechanisms. This fragmentation neglects the synergistic reality where:
+	\begin{enumerate}
+		\item \textbf{Antibiotic-resistant bacteria (ARB)} employ survival mechanisms including target-site modification and plasmid-mediated resistance gene transfer
+		\item \textbf{Non-resistant bacteria} compete for resources while responding differently to selective pressures
+		\item \textbf{Immune effectors} dynamically interact with both bacterial subpopulations
+		\item \textbf{Antibiotics} simultaneously impose selective pressure while modulating immune activity
+	\end{enumerate}
+	The clinical urgency is underscored by resistance drivers such as antibiotic overuse (e.g., inappropriate viral infection treatment), premature therapy discontinuation, and incorrect dosing—all contributing to evolutionary selection favoring resistant strains.
+	
+	\subsection{Modeling Imperatives}
+	Treatment complexity escalates dramatically with resistance emergence due to:
+	\begin{itemize}
+		\item Diminished therapeutic options with higher toxicity profiles
+		\item Immune function degradation during severe infections
+		\item \textbf{Selective pressure} phenomena where indiscriminate antibiotic use eliminates susceptible bacteria while creating ecological niches for ARB expansion
+	\end{itemize}
+	Epidemiological evidence suggests that modest reductions (e.g., 10\%) in unnecessary antibiotic usage could significantly curb resistance propagation. However, predicting intervention outcomes requires sophisticated modeling accounting for:
+	\begin{equation*}
+		\underbrace{\text{Bacterial growth kinetics}}_\text{Competition} + \underbrace{\text{Resistance transmission}}_\text{Horizontal transfer} + \underbrace{\text{Immune recruitment}}_\text{Nonlinear dynamics}
+	\end{equation*}
+	
+	\subsection{Proposed Framework}
+	Our novel dynamical system addresses existing gaps by concurrently integrating:
+	\begin{itemize}
+		\item Dual bacterial subpopulations (resistant vs. susceptible)
+		\item Adaptive immune response dynamics
+		\item Pharmacokinetic/pharmacodynamic antibiotic profiles
+	\end{itemize}
+	This tripartite model enables quantitative investigation of:
+	\begin{itemize}
+		\item Equilibrium conditions governing pathogen clearance
+		\item Resistance dominance thresholds
+		\item Chronic infection persistence criteria
+	\end{itemize}
+	Through numerical analysis and computational implementation, we examine critical scenarios including:
+	\begin{itemize}
+		\item Optimal dosing windows minimizing resistance selection
+		\item Immune augmentation strategies complementing antibiotics
+		\item Failure modes under subtherapeutic drug concentrations
+	\end{itemize}
+	
+	\subsection{Structural Overview}
+	This paper proceeds as follows: Section 2 formalizes key biological mechanisms; Section 3 develops the governing equations; Section 4 analyzes equilibrium states; Section 5 presents numerical simulations; and Section 6 details the open-source implementation. Our integrated approach provides a critical tool for simulating combination therapies and optimizing antimicrobial stewardship policies.

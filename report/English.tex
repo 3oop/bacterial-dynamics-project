@@ -1,0 +1,88 @@
+\documentclass[12pt]{article}
+
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{graphicx}
+\usepackage{multicol,multirow}
+\usepackage{caption}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{pdfpages}
+\usepackage[sortcites,style=nature,sorting=none,backend=biber]{biblatex}
+\addbibresource{ref.bib}
+
+\theoremstyle{definition}
+\newtheorem{theo}{\textbf{Theorem}}
+\newtheorem{prp}{\large{Proposition}}
+\newtheorem{defff}{\large{Defenition}}
+\newtheorem{lem}{\large{Lemma}}
+\renewcommand{\baselinestretch}{1.25}
+
+\title{Population Dynamics of Bactria inside Humans}
+
+\date{}
+\setstretch{1.45}
+
+
+\begin{document}
+	\graphicspath{{../figs/}}
+	
+	\input{titlepage_en.tex}
+	
+	\newpage
+	\setcounter{page}{2}
+	
+	\begin{center}
+		\LARGE{\textbf{Abstract}}
+		
+		\vspace{1cm}
+		
+		
+	\end{center}
+	
+	\begin{flushleft}
+		\Large 
+		Understanding the dynamics of interactions between antibiotic-resistant 	bacteria, the immune
+		response, and the presence of antibiotics is crucial for developing effective strategies to combat
+		antibiotic resistance. In this work, we introduce an innovative mathematical model that delves
+		into the complex dynamics between bacteria that are resistant to antibiotics, the immune
+		system, and the administration of antibiotic treatment. Through qualitative analysis, four
+		distinct stable equilibria have been identified, each representing distinct biological scenarios,
+		providing valuable insights for combating antibiotic resistance.
+		
+	\end{flushleft}
+	
+	\newpage	
+	
+	\tableofcontents
+	
+	\newpage
+	
+	\section{Introduction} \input{Introduction.tex}
+	
+	
+	\newpage
+	\section{Dynamic Model} \input{Dynamic_Model.tex}
+	
+	
+	\newpage
+	\section{Equilibria} \input{Equilibria.tex}
+	
+	
+	\newpage
+	\section{Stability Analysis} \input{Stability_Analysis.tex}
+	
+	
+	\newpage
+	\section{Numerical Computation and Results} \input{Num_Comp.tex}
+	
+	
+	\newpage
+	\addcontentsline{toc}{section}{References}
+	\nocite{*}
+	\printbibliography
+	
+	
+\end{document}
+ 

@@ -1,0 +1,286 @@
+Local stability is determined by the signs of the eigenvalues of the Jacobian matrix obtained by linearizing our system around the steady state. This is given at any point $J(a,s,r,p)$ by
+$$\begin{pmatrix}
+	-\mu & 0 & 0 & 0 \\
+	-\alpha s & \eta_s (1-n) - \eta_s s - \alpha a - \beta \frac{r^2}{n^2} - \gamma p & -\eta_s s - \beta \frac{s^2}{n^2} & -\gamma s \\
+	0 & -\eta_r r + \beta \frac{r^2}{n^2} & \eta_r (1-n) - \eta_r r + \beta \frac{s^2}{n^2} - \gamma p & -\gamma r \\
+	0 & \phi(n) (f(n)-p) + \dot{f}(n) p \phi(n) & p \dot{\phi}(n) (f(n)-p) + \dot{f}(n) p \phi(n) & \phi(n) (f(n)-2p)
+\end{pmatrix}.$$
+
+
+We denote Locally Asymptotically Stable as LAS. Moreover, we use the notations below
+$$C_{+} = \eta_{s}\left(1 - \lambda_{+}\right) - \alpha - \beta$$
+$$ C_{-} = \eta_{r}\left(1 - \lambda_{-}\right) + \beta$$
+$$C_* = -\frac{\left(\eta_s s_* + \eta_r r_*\right) \beta s_* r_* \left(\eta_s - \eta_r\right)}{f(n_*)\phi(n_*) (n_*)^2 \left(\eta_s s_* + \eta_r r_* + f(n_*)\phi(n_*)\right)} - \frac{\eta_s s_* - \eta_r r_*}{\eta_*} .$$
+
+\begin{theo}
+
+\ 	\begin{enumerate}
+		\item The equilibrium \( E_2 \ (1, 0, 1, 0) \) is unstable.
+		\item The equilibrium \( E_3 \left(1, 1 - \frac{\alpha}{\eta_s}, 0, 0\right) \) is unstable.
+		\item The equilibrium \( E_+ \ (1, 0, \lambda_+, f(\lambda_+) ) \) is LAS iff $\gamma f(\lambda_+)> C_+$ and $\gamma \dot f(\lambda_+)> \eta_r$.
+		\item The equilibrium 
+		\( E_- \ (1, \lambda_-, 0, f(\lambda_-)) \) is LAS iff $\gamma f(\lambda_-)>C_- $ and 
+		$\gamma \dot f(\lambda_-)>\eta_s$.
+		\item The equilibrium \( E_* \ (1, s_*, r_*, f(n_*) ) \) is LAS iff $\gamma \dot f(n_*)>C_*$.
+	\end{enumerate}
+\end{theo}
+\begin{proof}
+\	\begin{enumerate}
+		\item Equilibrium \(E_{2}(1,0,1,0)\):  
+		The Jacobian matrix of the equilibrium \(E_{2}\) is given by  
+		\[
+		J(E_{2}) = \begin{pmatrix} 
+			-\mu & 0 & 0 & 0 \\ 
+			0 & -a-\beta & 0 & 0 \\ 
+			0 & -\eta_{r} + \beta & -\eta_{r} & -\gamma \\ 
+			0 & 0 & 0 & \phi(1)f(1) 
+		\end{pmatrix}.
+		\]
+		Given that \(\phi(1)f(1)>0\), it follows that \(E_{2}\) is an unstable point.
+		
+		\item Equilibrium \(E_{3}\left(1,1-\dfrac{\alpha}{\eta_{s}},0,0\right)\):  
+		The Jacobian matrix corresponding to the equilibrium point \(E_{3}\) is represented as  
+		\[
+		J(E_{3}) = \begin{pmatrix} 
+			-\mu & 0 & 0 & 0 \\ 
+			\dfrac{\alpha^{2}}{\eta_{s}} - \alpha & \alpha - \eta_{s} & \alpha - \eta_{s} - \beta & -\gamma + \dfrac{\gamma\alpha}{\eta_{s}} \\ 
+			0 & 0 & \dfrac{\eta_{r}\alpha}{\eta_{s}} + \beta & 0 \\ 
+			0 & 0 & 0 & \phi\left(1-\dfrac{\alpha}{\eta_{s}}\right)f\left(1-\dfrac{\alpha}{\eta_{s}}\right) 
+		\end{pmatrix}.
+		\]
+		Since \(\phi\left(1-\dfrac{\alpha}{\eta_{s}}\right)f\left(1-\dfrac{\alpha}{\eta_{s}}\right)>0\), this indicates that the equilibrium \(E_{3}\) is unstable.
+		\item Equilibrium \(E_{+}(1,0,\lambda_{+},f(\lambda_{+}))\): The Jacobian matrix associated with the equilibrium point \(E_{+}\) is expressed as
+		$$
+		J(E_{+}) = \begin{pmatrix}
+			-\mu & 0 & 0 & 0 \\ 
+			0 & \eta_{s}(1-\lambda_{+})-\alpha-\beta-\gamma f(\lambda_{+}) & 0 & 0 \\ 
+			0 & -\eta_{r}\lambda_{+} + \beta & -\eta_{r}\lambda_{+} & -\gamma\lambda_{+} \\ 
+			0 & f(\lambda_{+})f(\lambda_{+})\phi(\lambda_{+}) & f(\lambda_{+})f(\lambda_{+})\phi(\lambda_{+}) & -f(\lambda_{+})\phi(\lambda_{+})
+		\end{pmatrix}.
+		$$
+		
+		The eigenvalues of the Jacobian matrix \(J(E_{+})\) are expressed as:
+		\[
+		\lambda_{1} = -\mu,
+		\]
+		\[
+		\lambda_{2} = \eta_{s}(1-\lambda_{+})-\alpha-\beta-\gamma f(\lambda_{+}).
+		\]
+		
+		The remaining eigenvalues, \(\lambda_{3}\) and \(\lambda_{4}\), are given from the matrix \(B\):
+		\[
+		B = \begin{pmatrix}
+			-\eta_{r}\lambda_{+} & -\gamma\lambda_{+} \\ 
+			\dot{f}(\lambda_{+})f(\lambda_{+})\phi(\lambda_{+}) & -f(\lambda_{+})\phi(\lambda_{+})
+		\end{pmatrix}.
+		\]
+		
+		We have
+		\[
+		\operatorname{tr}(B) = -\eta_{r}\lambda_{+} - f(\lambda_{+})\phi(\lambda_{+}) < 0
+		\]
+		and
+		\[
+		\det(B) = \lambda_{+}f(\lambda_{+})\phi(\lambda_{+})(\eta_{r} + \gamma f(\lambda_{+})).
+		\]
+		
+		Consequently, the eigenvalues have a negative real part if and only if
+		\[
+		(\eta_{s}-\eta_{r})(1-\lambda_{+}) < \alpha + \beta, \quad f(\lambda_{+}) > -\dfrac{\eta_{r}}{\gamma}.
+		\] 
+		
+		
+		\item Equilibrium \(E_{-}(1,\lambda_{-},0,f(\lambda_{-}))\): The Jacobian matrix corresponding to the equilibrium point \(E_{-}\) is
+		\[
+		J(E_{-}) = \begin{pmatrix}
+			-\mu & 0 & 0 & 0 \\ 
+			-\alpha\lambda_{-} & -\eta_{s}\lambda_{-} & -\eta_{s}\lambda_{-} - \beta & -\gamma\lambda_{-} \\ 
+			0 & 0 & \eta_{r}(1-\lambda_{-}) + \beta - \gamma f(\lambda_{-}) & 0 \\ 
+			0 & f(\lambda_{-})f(\lambda_{-})\phi(\lambda_{-}) & f(\lambda_{-})f(\lambda_{-})\phi(\lambda_{-}) & -f(\lambda_{-})\phi(\lambda_{-})
+		\end{pmatrix}.
+		\]
+		
+		The eigenvalues of the Jacobian matrix \(J(E_{-})\) are determined as follows:
+		\[
+		\lambda_{1} = -\mu,
+		\]
+		\[
+		\lambda_{2} = \eta_{s}(1-\lambda_{-}) + \beta - \gamma f(\lambda_{-}).
+		\]
+		
+		For the additional eigenvalues, \(\lambda_{3}\) and \(\lambda_{4}\), they are calculated from matrix \(C\):
+		\[
+		C = \begin{pmatrix}
+			-\eta_{s}\lambda_{-} & -\gamma\lambda_{-} \\ 
+			\dot{f}(\lambda_{-})f(\lambda_{-})\phi(\lambda_{-}) & -f(\lambda_{-})\phi(\lambda_{-})
+		\end{pmatrix}.
+	\]
+
+Since
+\[
+\operatorname{tr}(C) = -\eta_{s}\lambda_{-} - f(\lambda_{-})\phi(\lambda_{-}) < 0
+\]
+and
+\[
+\det(C) = \lambda_{-}f(\lambda_{-})\phi(\lambda_{-})(\eta_{s} + \gamma f(\lambda_{-})),
+\]
+
+then, the eigenvalues have a negative real part if and only if
+\[
+(\eta_{s} - \eta_{r})(1 - \lambda_{-}) > a + \beta, \quad f(\lambda_{-}) > \frac{\eta_{s}}{\gamma}.
+\]
+		
+		\item Equilibrium \(E_{*}(1,s_{*},r_{*},f(n_{*}))\): We investigate below the local stability of \(E_{*}\). The Jacobian matrix of our system at \(E_{*}\) takes the form 
+		\[
+		J(E_{*}) = \begin{pmatrix}
+			-\mu & 0 & 0 & 0 \\ 
+			-\alpha s_{*} & -\eta_{s}s_{*} + \beta\dfrac{s_{*}r_{*}}{n_{*}^{2}} & -\eta_{s}s_{*} - \beta\dfrac{s_{*}}{n_{*}} + \beta\dfrac{s_{*}r_{*}}{n_{*}^{2}} & -\gamma s_{*} \\ 
+			0 & -\eta_{r}r_{*} + \beta\dfrac{r_{*}}{n_{*}} - \beta\dfrac{s_{*}r_{*}}{n_{*}^{2}} & -\eta_{r}r_{*} - \beta\dfrac{s_{*}r_{*}}{n_{*}^{2}} & -\gamma r_{*} \\ 
+			0 & f(n_{*})f(n_{*})\phi(n_{*}) & f(n_{*})f(n_{*})\phi(n_{*}) & -f(n_{*})\phi(n_{*})
+		\end{pmatrix}.
+		\]
+		
+		The characteristic polynomial of \(J(E_{*})\) is given by
+		$$P(\lambda) = -(\lambda + \mu)\left(
+		\lambda^{3} - \operatorname{tr}(D)\lambda^{2} 
+		- \frac{1}{2}\left[\operatorname{tr}(D^{2}) - (\operatorname{tr}(D))^{2}\right]\lambda 
+		- \det(D)
+		\right),$$
+		where \(D\) is the following matrix:
+		\[
+		D = \begin{pmatrix}
+			-\eta_{s}s_{*} + \beta\dfrac{s_{*}r_{*}}{n_{*}^{2}} & 
+			-\eta_{s}s_{*} - \beta\dfrac{s_{*}}{n_{*}} + \beta\dfrac{s_{*}r_{*}}{n_{*}^{2}} & 
+			-\gamma s_{*} \\[2ex]
+			-\eta_{r}r_{*} + \beta\dfrac{r_{*}}{n_{*}} - \beta\dfrac{s_{*}r_{*}}{n_{*}^{2}} & 
+			-\eta_{r}r_{*} - \beta\dfrac{s_{*}r_{*}}{n_{*}^{2}} & 
+			-\gamma r_{*} \\[2ex]
+			f(n_{*})f(n_{*})\phi(n_{*}) & 
+			f(n_{*})f(n_{*})\phi(n_{*}) & 
+			-f(n_{*})\phi(n_{*})
+		\end{pmatrix}.
+		\]
+		Therefore, the primary eigenvalue is \(\lambda_{1} = -\mu\), while the remaining eigenvalues are solutions to the cubic equation
+		\begin{equation}
+			\lambda^{3} + a_{2}\lambda^{2} + a_{1}\lambda + a_{0} = 0, \tag{10}
+		\end{equation}
+		with coefficients defined as follows:
+		\[
+		a_{2} = -\operatorname{tr}(D), \quad 
+		a_{1} = -\frac{1}{2}\left[\operatorname{tr}(D^{2}) - (\operatorname{tr}(D))^{2}\right], \quad 
+		a_{0} = -\det(D).
+		\]
+		
+		Per the Routh-Hurwitz criterion for third-order polynomials, all solutions of the equation are situated in the left half of the complex plane if and only if \(a_{2} > 0\), \(a_{0} > 0\), and \(a_{2}a_{1} > a_{0}\). Detailed computations yield
+		\begin{align*}
+			a_{0} &= f(n_{*})\phi(n_{*})\beta\frac{s_{*}r_{*}}{n_{*}}(\eta_{s} - \eta_{r}) > 0 \\
+			a_{2} &= \eta_{s}s_{*} + \eta_{r}r_{*} + f(n_{*})\phi(n_{*}) > 0,
+		\end{align*}
+		and
+		\begin{align*}
+			a_{1}a_{2} - a_{0} 
+			&= f(n_{*})\phi(n_{*})(\eta_{s}s_{*} + \eta_{r}r_{*})(\eta_{s}s_{*} + \eta_{r}r_{*} + f(n_{*})\phi(n_{*})) \\
+			&\quad + (\eta_{s}s_{*} + \eta_{r}r_{*})\beta\frac{s_{*}r_{*}}{n_{*}}(\eta_{s} - \eta_{r}) > 0 \quad \square
+		\end{align*}
+		
+		
+		
+		
+		
+		
+		
+		
+	\end{enumerate}
+\end{proof}
+\begin{prp}
+	The equilibrium \( E_0(1,0,0,0) \) is unstable.
+\end{prp}
+\begin{proof}
+	Assume, by way of contradiction, that for an initial condition \((a(0),s(0),r(0),p(0))\) near \(E_0\), it holds that
+	\[
+	\lim_{t \to +\infty} s(t) = \lim_{t \to +\infty} r(t) = \lim_{t \to +\infty} p(t) = 0.
+	\]
+	Since \(f\) and \(\phi\) are continuous functions, we have
+	\[
+	\lim_{t \to +\infty} f(u(t)) = f(0), \quad \lim_{t \to +\infty} \phi(u(t)) = \phi(0).
+	\]
+	Thus, for any \(\epsilon > 0\), there exists \(\tilde{t} > 0\) such that for all \(t \geq \tilde{t}\), the following conditions are satisfied:
+	\[
+	f(u(t)) \geq f(0) - \epsilon \quad \text{and} \quad \phi(u(t)) \geq \phi(0) - \epsilon.
+	\]
+	For all \(t \geq \tilde{t}\), the function \(p(t)\) satisfies
+	\begin{align*}
+		p(t) &= p\phi(n)(f(n) - p) \\
+		&\geq p\phi(n)(f(0) - \epsilon - p) \\
+		&\geq p(\phi(0) - \epsilon)(f(0) - \epsilon) \left( 1 - \frac{p}{f(0) - \epsilon} \right).
+	\end{align*}
+	This yields
+	\[
+	\liminf_{t \to +\infty} p(t) \geq f(0) - \epsilon.
+	\]
+	As \(\epsilon > 0\) was chosen arbitrarily, we conclude that \(\liminf_{t \to +\infty} p(t) \geq f(0)\), which contradicts our initial assumption.
+\end{proof}
+\begin{theo}
+	The equilibrium $E_1$ is LAS if $\alpha>\eta_s$ and $\gamma f(0) > \eta_r $.
+\end{theo}
+\begin{proof}
+	First, \(\lim_{t \to +\infty} a(t) = 1\). Substituting this value into the second equation of our system we obtain the asymptotically equivalent system given by
+	\begin{equation}
+	\begin{cases}
+		\dot{s}(t) &= \eta_s (1 - n)s - as - \beta \frac{sr}{n} - ysp, \\
+		\dot{r}(t) &= \eta_r (1 - n)r + \beta \frac{sr}{n} - yrp, \\
+		\dot{p}(t) &= \phi(n)p(f(n) - p), \\
+		n &= s + r.
+	\end{cases}
+	\end{equation}
+	
+	The first equation gives
+	\begin{align*}
+		\dot{s}(t) &= \eta_s (1 - n)s - as - \beta \frac{sr}{n} - ysp \\
+		&\leq (\eta_s - a)s
+	\end{align*}
+	which implies that \(\lim_{t \to +\infty} s(t) = 0\). Substituting this value into the second equation we obtain the asymptotically equivalent system as follows
+	
+	\begin{equation}
+	\begin{cases}
+		\dot{r}(t) &= \eta_r (1 - r)r - yrp, \\
+		\dot{p}(t) &= \phi(r)p(f(r) - p).
+	\end{cases}
+	\end{equation}
+	
+	The Jacobian matrix associated with the point \((0, f(0))\) of this planar system is given by
+	\[
+	\begin{pmatrix}
+		\eta_r - yf(0) & 0 \\
+		f(0)f(0)\phi(0) & -f(0)\phi(0)
+	\end{pmatrix}
+	\]
+	which completes our proof. \qedhere
+\end{proof}
+
+\begin{table}[ht]
+	\centering
+	\caption{Conditions for the stability of equilibria.}
+	\label{tab:stability}
+	\begin{tabular}{l|l|l}
+		\hline
+		\textbf{Equilibrium} & \textbf{Biological existence} & \textbf{Stability} \\
+		\hline
+		\hline
+		\( E_0 \ (1, 0, 0, 0) \) & Always exists & Always unstable \\ 
+		\( E_1 \ (1, 0, 0, f(0)) \) & Always exists & \(\alpha > \eta_s\) and \(\gamma f(0) > \eta_r\) \\
+		\( E_2 \ (1, 0, 1, 0) \) & Always exists & Always unstable \\
+		\( E_3 \left(1, 1 - \frac{\alpha}{\eta_s}, 0, 0\right) \) & \(\eta_s > \alpha\) & Always unstable \\
+		\( E_+ \ (1, 0, \lambda_+, f(\lambda_+) ) \) & \(\eta_r > \gamma f(0)\) & \(\gamma f(\lambda_+) > C_+\) and \(\gamma f(\lambda_+) > \eta_r\) \\
+		\( E_- \ (1, \lambda_-, 0, f(\lambda_-)) \) & \(\eta_s - \alpha > \gamma f(0)\) & \(\gamma f(\lambda_-) > C_-\) and \(\gamma f(\lambda_-) > \eta_s\) \\
+		\( E_* \ (1, s_*, r_*, f(n_*) ) \) & 
+		\(\begin{cases}
+			\eta_r \frac{\alpha + \beta}{\eta_s - \eta_r} < \gamma f(n_*) < \frac{\eta_r \alpha + \eta_s \beta}{\eta_s - \eta_r} \\
+			\text{and} \\
+			\eta_s > \eta_r + \alpha + \beta
+		\end{cases}\) & 
+		\(\gamma f(n_*) > C_*\) \\
+		\hline
+		\hline
+	\end{tabular}
+\end{table}
