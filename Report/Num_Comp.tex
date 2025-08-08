@@ -33,16 +33,16 @@ Additionally, the qualitative investigation reveals the presence of four stable 
 
 
 \begin{figure}
-	\centering
-	\caption{Equilibria of $E_+$ and $E_-$}
-	\begin{subfigure}{0.45\textwidth}
-		\includegraphics[width = .9\textwidth]{E_pos.png}
-		\label{fig:epos}
-	\end{subfigure}
-	\begin{subfigure}{0.45\textwidth}
-		\label{fig:eneg}
-		\includegraphics[width = .9\textwidth]{E_neg.png}
-	\end{subfigure}
+    \centering
+    \caption{Equilibria of $E_+$ and $E_-$}
+    \begin{subfigure}{0.49\textwidth}\label{fig:epos}
+        \centering
+        \includegraphics[width =\textwidth]{E_pos.png}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}\label{fig:eneg}
+        \centering
+        \includegraphics[width = \textwidth]{E_neg.png}
+    \end{subfigure}
 \end{figure}
 
 The stability analysis of the equilibria $E_+$ and $E_-$ is provided through the Lyapunov theory, which provides a rigorous mathematical framework for assessing the stability of these points in the system. In terms of biology, $E_+$ describes a situation where the infection is sustained entirely by resistant bacteria. At this point, the antibiotic is effective in eliminating non-resistant bacteria, which means that the non-resistant strain is unable to survive in the presence of the treatment. However, the resistant bacteria continue to propagate, suggesting that the antibiotic is not effective against them. This scenario highlights the challenge posed by antibiotic resistance: even with a strong treatment, the infection persists due to the presence of bacteria that can withstand the antibiotic. The stability of $E_+$ implies that under certain conditions—specifically, when the resistant bacteria have a survival advantage—the system will remain in this state unless external interventions are made to counteract the resistance.
@@ -50,11 +50,10 @@ The stability analysis of the equilibria $E_+$ and $E_-$ is provided through the
 
 In contrast, the equilibrium $E_-$ represents a different biological outcome. Here, the infection is driven entirely by non-resistant bacteria, with the resistant strain being eliminated. This situation arises when the antibiotic dosage is insufficient to suppress the non-resistant bacteria fully, allowing them to continue propagating. However, the resistant bacteria are outcompeted by the immune system because their reproduction rate is lower compared to the strength of the immune response. In this scenario, while the non- resistant bacteria remain problematic, the resistant bacteria do not pose a threat, indicating that the infection can still be controlled if the immune response is sufficiently strong. The stability of $E_*$ suggests that under certain conditions, the system can settle into a state where non-resistant bacteria dominate, but the resistant bacteria are eradicated.
 
-\begin{figure}
-	\centering
-	\caption{Equilibria of $E_*$}
-	\label{fig:estar}
-	\includegraphics[width = 0.7\textwidth]{E_star.png}
+\begin{figure}\label{fig:estar}
+    \centering
+    \caption{Equilibria of $E_*$}
+    \includegraphics[width = 0.7\textwidth]{E_star.png}
 \end{figure}
 
 
