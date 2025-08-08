@@ -1,32 +1,31 @@
-
 Our mathematical model sheds light on the intricate dynamics of antibiotic resistance and provides a theoretical framework for devising effective intervention strategies. By identifying stable equilibria and delineating distinct biological scenarios, our model offers valuable insights into the interplay between antibiotic-resistant bacteria, the immune response, and antibiotic treatment. Our model is characterized by a system of four differential equations.
 
 \begin{table}[ht]
-\centering
-\caption{The selection of parameters}
-\label{tab:parameters}
-\begin{tabular}{cccc}
-\hline
-\textbf{$E_1$} & \textbf{$E_+$} & \textbf{$E_-$} & \textbf{$E_*$} \\ 
-\hline
-$\alpha = 1$ & $\alpha = 0.5$ & $\alpha = 1$ & $\alpha = 0.2$ \\
-$\beta = 0.1$ & $\beta = 1$ & $\beta = 0.1$ & $\beta = 0.3$ \\
-$\gamma = 1$ & $\gamma = 2$ & $\gamma = 1$ & $\gamma = 1$ \\
-$\eta_s = 1$ & $\eta_s = 3$ & $\eta_s = 4$ & $\eta_s = 2$ \\
-$\eta_r = 0.3$ & $\eta_r = 0.5$ & $\eta_r = 1$ & $\eta_r = 2.5$ \\
-$\mu = 3$ & $\mu = 3$ & $\mu = 3$ & $\mu = 3$ \\
-\hline
-\end{tabular}
+	\centering
+	\caption{The selection of parameters}
+	\label{tab:parameters}
+	\begin{tabular}{cccc}
+		\hline
+		\textbf{$E_1$} & \textbf{$E_+$} & \textbf{$E_-$} & \textbf{$E_*$} \\ 
+		\hline
+		$\alpha = 1$ & $\alpha = 0.5$ & $\alpha = 1$ & $\alpha = 0.2$ \\
+		$\beta = 0.1$ & $\beta = 1$ & $\beta = 0.1$ & $\beta = 0.3$ \\
+		$\gamma = 1$ & $\gamma = 2$ & $\gamma = 1$ & $\gamma = 1$ \\
+		$\eta_s = 1$ & $\eta_s = 3$ & $\eta_s = 4$ & $\eta_s = 2$ \\
+		$\eta_r = 0.3$ & $\eta_r = 0.5$ & $\eta_r = 1$ & $\eta_r = 2.5$ \\
+		$\mu = 3$ & $\mu = 3$ & $\mu = 3$ & $\mu = 3$ \\
+		\hline
+	\end{tabular}
 \end{table}
 
 
 Initially, we establish the presence of a positively invariant set, indicating a natural constraint on growth due to limited resources, as expressed in the logistic growth term.
 
 \begin{figure}
-    \centering
-    \caption{Equilibria of $E_1$}
-    \label{fig:e1}
-    \includegraphics[width = 0.7\textwidth]{E_1.png}
+	\centering
+	\caption{Equilibria of $E_1$}
+	\label{fig:e1}
+	\includegraphics[width = 0.7\textwidth]{E_1.png}
 \end{figure}
 
 
@@ -34,30 +33,28 @@ Additionally, the qualitative investigation reveals the presence of four stable 
 
 
 \begin{figure}
-    \centering
-    \caption{Equilibria of $E_+$ and $E_-$}
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \includegraphics[width = .9\textwidth]{E_pos.png}
-        \label{fig:epos}
-    \end{subfigure}
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \label{fig:eneg}
-        \includegraphics[width = .9\textwidth]{E_neg.png}
-    \end{subfigure}
+	\centering
+	\caption{Equilibria of $E_+$ and $E_-$}
+	\begin{subfigure}{0.45\textwidth}
+		\includegraphics[width = .9\textwidth]{E_pos.png}
+		\label{fig:epos}
+	\end{subfigure}
+	\begin{subfigure}{0.45\textwidth}
+		\label{fig:eneg}
+		\includegraphics[width = .9\textwidth]{E_neg.png}
+	\end{subfigure}
 \end{figure}
 
-The stability analysis of the equilibria $E_+ \left(1, 0, \lambda_+ , f(\lambda_+)\right)$ and $E_- \left(1, \lambda_- , 0, f(\lambda_-)\right)$ is provided through the Lyapunov theory, which provides a rigorous mathematical framework for assessing the stability of these points in the system. In terms of biology, $E_+$ describes a situation where the infection is sustained entirely by resistant bacteria. At this point, the antibiotic is effective in eliminating non-resistant bacteria, which means that the non-resistant strain is unable to survive in the presence of the treatment. However, the resistant bacteria continue to propagate, suggesting that the antibiotic is not effective against them. This scenario highlights the challenge posed by antibiotic resistance: even with a strong treatment, the infection persists due to the presence of bacteria that can withstand the antibiotic. The stability of $E_+$ implies that under certain conditions—specifically, when the resistant bacteria have a survival advantage—the system will remain in this state unless external interventions are made to counteract the resistance.
+The stability analysis of the equilibria $E_+$ and $E_-$ is provided through the Lyapunov theory, which provides a rigorous mathematical framework for assessing the stability of these points in the system. In terms of biology, $E_+$ describes a situation where the infection is sustained entirely by resistant bacteria. At this point, the antibiotic is effective in eliminating non-resistant bacteria, which means that the non-resistant strain is unable to survive in the presence of the treatment. However, the resistant bacteria continue to propagate, suggesting that the antibiotic is not effective against them. This scenario highlights the challenge posed by antibiotic resistance: even with a strong treatment, the infection persists due to the presence of bacteria that can withstand the antibiotic. The stability of $E_+$ implies that under certain conditions—specifically, when the resistant bacteria have a survival advantage—the system will remain in this state unless external interventions are made to counteract the resistance.
 
 
 In contrast, the equilibrium $E_-$ represents a different biological outcome. Here, the infection is driven entirely by non-resistant bacteria, with the resistant strain being eliminated. This situation arises when the antibiotic dosage is insufficient to suppress the non-resistant bacteria fully, allowing them to continue propagating. However, the resistant bacteria are outcompeted by the immune system because their reproduction rate is lower compared to the strength of the immune response. In this scenario, while the non- resistant bacteria remain problematic, the resistant bacteria do not pose a threat, indicating that the infection can still be controlled if the immune response is sufficiently strong. The stability of $E_*$ suggests that under certain conditions, the system can settle into a state where non-resistant bacteria dominate, but the resistant bacteria are eradicated.
 
 \begin{figure}
-    \centering
-    \caption{Equilibria of $E_*$}
-    \label{fig:estar}
-    \includegraphics[width = 0.7\textwidth]{E_star.png}
+	\centering
+	\caption{Equilibria of $E_*$}
+	\label{fig:estar}
+	\includegraphics[width = 0.7\textwidth]{E_star.png}
 \end{figure}
 
 
